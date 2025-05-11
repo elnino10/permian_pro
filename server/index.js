@@ -1,11 +1,15 @@
-const express = require("express");
+import express from "express";
+import authRoutes from "./routes/authRoute.js";
 
 const app = express();
+const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3000;
+// create auth routes
+app.use("/auth", authRoutes);
+
 
 app.get("/", (req, res) => {
     res.send("Welcome to Permian Pro API");
