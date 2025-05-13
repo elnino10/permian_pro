@@ -2,8 +2,9 @@ import users from "../mockUsers.js";
 import { nanoid } from "nanoid";
 
 export const login = (req, res) => {
-  const { email } = req.body;
+  let { email } = req.body;
 
+  email = email.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!email || !emailRegex.test(email)) {
@@ -33,7 +34,8 @@ export const login = (req, res) => {
 
 export const verifyOtp = (req, res) => {
   // get email and OTP from request body
-  const { otp } = req.body;
+  let { otp } = req.body;
+  otp = otp.trim();
   const email = "userEmail";
   // check if the OTP is valid and not expired
   const currentTime = new Date();
