@@ -6,9 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js node --trace-warnings"
+    "dev": "nodemon index.js node --trace-warnings",
+    "test": "node testDb.js"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "nanoid": "^5.1.5"
   },
